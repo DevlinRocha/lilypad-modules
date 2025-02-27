@@ -5,14 +5,10 @@
     "Spec": {
       "Deal": { "Concurrency": 1 },
       "Docker": {
-        "WorkingDirectory": "/app",
         "Entrypoint": [
-          "/app/src/run_model",
-          "--prompt", {{.prompt}}
-          {{ if .temperature }} "--temperature", {{ .temperature }} {{ end }}
-          {{ if .max_tokens }} "--max_tokens", {{ .max_tokens }} {{ end }}
+          "/app/src/run_model", {{ .request }}
         ],
-        "Image": "devlinrocha/deepseek-r1-7b:v0.0.0"
+        "Image": "devlinrocha/phi4-14b@sha256:9d62a7e4b3f7e89789b0bc61a6c5f98a22a108907d9a0abea82617444c743b9f"
       },
       "Engine": "Docker",
       "Network": { "Type": "None" },
